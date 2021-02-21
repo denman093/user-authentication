@@ -8,6 +8,8 @@ dotenv.config();
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
 
+app.use(express.json());
+
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -16,3 +18,5 @@ mongoose.connect(process.env.MONGO_URI, {
         return console.error(err);
     console.log("Connected to MongoDB");
 })
+
+app.use('/auth', require('./routers/userRouter'));
