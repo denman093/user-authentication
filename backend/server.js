@@ -19,4 +19,4 @@ mongoose.connect(process.env.MONGO_URI, {
     console.log("Connected to MongoDB");
 })
 
-app.use('/auth', require('./routers/userRouter'));
+app.use('/identity', require('./routers/userRouter'));
